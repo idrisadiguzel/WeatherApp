@@ -1,0 +1,27 @@
+<br /><br />
+<div class="input-group mb-3">
+  <input
+    type="text"
+    [(ngModel)]="cityName"
+    class="form-control"
+    placeholder="Please write username"
+    aria-label="Recipient's username"
+    aria-describedby="button-addon2"
+  />
+  <button
+    class="btn btn-primary"
+    type="button"
+    id="button-addon2"
+    (click)="findCurrentWeather()"
+  >
+    Search
+  </button>
+</div>
+<div class="container">
+  <div class="row" *ngIf="cityName && weathers.length > 0">
+    <div *ngFor="let cityName of weathers" class="col-2 m-3">
+      <h1>{{ cityName.current.temperature }}°</h1>
+      <h1>{{ cityName.location.name }}</h1>
+    </div>
+  </div>
+</div>
